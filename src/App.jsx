@@ -5,11 +5,12 @@ import Names from "./Components/Names";
 import UndoName from "./Components/UndoName";
 import Navbar from "./Components/Navbar";
 import Carosel from "./Components/Carosel";
+import "./Components/style.css";
 
 
 
 const App=()=> {
-  
+
 
 const [data , setData] = useState(0)
 const [names , setNames] = useState("God of war")
@@ -19,6 +20,7 @@ const incrementData = ()=>{
 }
 
 const decrementData = ()=>{
+  if (data <= 0) return
   setData(data-1);
 }
 
@@ -38,10 +40,11 @@ const undoName = () =>{
      <div>
       <Navbar/>
       <Carosel/>
-      <h5>Hello from App </h5>
+      <h5 className="first">Hello from App </h5>
       <h5>The Data currently is : {data}</h5>
       <Increment value={data} dataFun={incrementData}/>
       <Decrement value={data} dataFun={decrementData}/>
+
 
       <h5>The Name is : {names}</h5>
       <Names value={names} namedata={changeName}/>
